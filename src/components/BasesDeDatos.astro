@@ -7,8 +7,11 @@ const proyectos = (await getCollection('proyectos', ({ data }) => data.tipo === 
 	.sort((a, b) => a.data.orden - b.data.orden);
 ---
 
+<!-- Si todavía no hay proyectos de este tipo, la sección no se pinta -->
+{proyectos.length > 0 && (
 <Seccion id="bases-de-datos" titulo="Bases de datos">
 	<div class="grid gap-6">
 		{proyectos.map((proyecto) => <TarjetaBD proyecto={proyecto} />)}
 	</div>
 </Seccion>
+)}

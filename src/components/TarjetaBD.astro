@@ -53,8 +53,10 @@ const cifras = [
 				</div>
 			))}
 		</dl>
-		<p class="relative z-10 text-small font-medium">
-			<a href={repo}>Script y datos de ejemplo</a>
-		</p>
+		{repo && (
+			<p class="relative z-10 text-small font-medium">
+				<a href={repo}>Script y datos de ejemplo</a>
+			</p>
+		)}
 	</div>
 </article>

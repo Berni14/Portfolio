@@ -89,7 +89,7 @@ Cada proyecto vive en su propio archivo Markdown dentro de una Content Collectio
 - [x] Separar en la home los de `tipo: frontend` y los de `tipo: bases-de-datos`
 - [x] Crear una página dinámica de detalle por proyecto
 - [x] Optimizar las capturas con el componente `<Image />` de Astro
-- [ ] Rellenar Experiencia y Sobre mí con contenido real
+- [x] Rellenar Experiencia y Sobre mí con contenido real
 
 Campos que propongo para cada proyecto:
 
@@ -98,7 +98,7 @@ Campos que propongo para cada proyecto:
 | titulo | texto | Nombre del proyecto |
 | resumen | texto | Una frase: qué problema resuelve |
 | tipo | frontend o bases-de-datos | En qué sección aparece |
-| portada | imagen | Captura principal, en modo oscuro |
+| portada | imagen | Captura principal (en claro si el proyecto no tiene modo oscuro) |
 | tecnologias | lista de texto | Etiquetas de la tarjeta |
 | demo | enlace (opcional) | Web en vivo |
 | repo | enlace | Código en GitHub |
@@ -169,7 +169,7 @@ Cada proyecto se muestra en dos niveles: una tarjeta en la home que engancha en 
 
 En la home, el proyecto `destacado` ocupa una tarjeta grande y los otros dos van en tarjetas más pequeñas debajo.
 
-- **Captura en oscuro**, recortada a la parte más vistosa, no la página entera
+- **Captura** (en claro si el proyecto no tiene modo oscuro), recortada a la parte más vistosa, no la página entera
 - **Título y una frase** que diga qué problema resuelve, no qué tecnología usa
 - **Etiquetas de tecnologías** (máximo 4) con borde lima
 - **Dos enlaces**: "Ver demo" y "Código"
@@ -191,9 +191,6 @@ No tienen interfaz bonita que capturar, así que se muestran como lo que son: da
 3. Reto principal y cómo lo resolviste
 4. Una decisión técnica que tomaste y por qué
 5. Resultado: capturas, enlaces y alguna cifra si la hay
-6. Qué haría diferente ahora
-
-El punto 6 es el que más valoran los reclutadores en perfiles junior: demuestra que aprendes.
 
 ### Errores a evitar
 

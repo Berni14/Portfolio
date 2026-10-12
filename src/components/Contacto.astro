@@ -1,12 +1,34 @@
 ---
 import Seccion from './Seccion.astro';
+
+const email = 'miguelbernierdev@gmail.com';
+const redes = [
+	{ href: 'https://www.linkedin.com/in/bernierdev/', texto: 'LinkedIn' },
+	{ href: 'https://github.com/Berni14', texto: 'GitHub' },
+];
 ---
 
 <Seccion id="contacto" titulo="Contacto">
-	<p>Texto de prueba: invitación a escribirte.</p>
-	<ul class="mt-4 flex flex-wrap gap-4">
-		<li><a href="mailto:correo@ejemplo.com">Email</a></li>
-		<li><a href="https://github.com/Berni14">GitHub</a></li>
-		<li><a href="#">LinkedIn</a></li>
+	<p class="max-w-prose text-muted">
+		¿Tienes un proyecto, una vacante o simplemente quieres hablar? Escríbeme y te responderé lo antes posible.
+	</p>
+	<!-- El email va a la vista: muchos reclutadores lo copian en lugar de pulsar el enlace -->
+	<p class="mt-6">
+		<a href={`mailto:${email}`} class="font-display text-subtitle font-bold break-all text-accent sm:text-title">{email}</a>
+	</p>
+	<ul class="mt-6 flex flex-wrap gap-3">
+		{redes.map(({ href, texto }) => (
+			<li>
+				<a
+					href={href}
+					target="_blank"
+					rel="noopener"
+					class="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-small font-medium hover:border-accent hover:text-fg hover:no-underline"
+				>
+					{texto} <span aria-hidden="true">↗</span>
+					<span class="sr-only">(se abre en otra pestaña)</span>
+				</a>
+			</li>
+		))}
 	</ul>
 </Seccion>

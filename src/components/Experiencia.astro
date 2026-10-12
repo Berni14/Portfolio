@@ -1,10 +1,49 @@
 ---
 import Seccion from './Seccion.astro';
+
+const experiencia = [
+	{
+		puesto: 'Desarrollador web freelance',
+		lugar: 'Proyectos propios',
+		fechas: '2024 – actualidad',
+		descripcion: 'Diseño y desarrollo de aplicaciones web de principio a fin, desde la base de datos hasta la interfaz y el despliegue.',
+	},
+	{
+		puesto: 'Programador del robot',
+		lugar: 'Robot ASCII Challenge · en equipo',
+		fechas: '3 meses',
+		descripcion: 'Programé el robot con el que el equipo tenía que superar una serie de pruebas.',
+	},
+];
+
+const formacion = [
+	{
+		titulo: 'Desarrollo de Aplicaciones Web (DAW)',
+		lugar: 'Ciclo formativo de grado superior',
+		fechas: 'En curso',
+	},
+];
 ---
 
 <Seccion id="experiencia" titulo="Experiencia">
-	<ol class="space-y-4">
-		<li>Puesto · Empresa · Fechas (prueba)</li>
-		<li>Ciclo DAW · Centro · Fechas (prueba)</li>
+	<ol class="space-y-8 border-l border-border pl-6">
+		{experiencia.map(({ puesto, lugar, fechas, descripcion }) => (
+			<li class="relative">
+				<span class="absolute top-2 -left-[calc(1.5rem+3.5px)] size-2 rounded-full bg-accent" aria-hidden="true"></span>
+				<h3>{puesto}</h3>
+				<p class="text-small text-muted">{lugar} · {fechas}</p>
+				<p class="mt-2 max-w-prose">{descripcion}</p>
+			</li>
+		))}
 	</ol>
+
+	<h3 class="mt-12 mb-4">Formación</h3>
+	<ul class="space-y-4">
+		{formacion.map(({ titulo, lugar, fechas }) => (
+			<li>
+				<p class="font-medium">{titulo}</p>
+				<p class="text-small text-muted">{lugar} · {fechas}</p>
+			</li>
+		))}
+	</ul>
 </Seccion>

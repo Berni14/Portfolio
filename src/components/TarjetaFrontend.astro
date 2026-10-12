@@ -2,24 +2,29 @@
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import Etiquetas from './Etiquetas.astro';
+import EnlacesProyecto from './EnlacesProyecto.astro';
 
 interface Props {
 	proyecto: CollectionEntry<'proyectos'>;
 }
 
 const { proyecto } = Astro.props;
-const { titulo, resumen, portada, portadaAlt, tecnologias, demo, repo, destacado } = proyecto.data;
+const { titulo, resumen, portada, portadaAlt, portadaEncuadre, tecnologias, demo, repo, destacado } = proyecto.data;
 ---
 
 <!-- El título es un enlace "estirado" que cubre toda la tarjeta; los otros enlaces quedan por encima -->
 <article class:list={['group relative overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-accent/60', destacado && 'sm:col-span-2']}>
-	<Image
-		src={portada}
-		alt={portadaAlt}
-		widths={[400, 800, 1200]}
-		sizes={destacado ? '(min-width: 768px) 736px, 100vw' : '(min-width: 768px) 360px, 100vw'}
-		class="aspect-video w-full object-cover"
-	/>
+	<!-- Las capturas son en claro: se enmarcan con un margen y en oscuro se les baja el brillo para que no deslumbren -->
+	<div class="p-3 pb-0">
+		<Image
+			src={portada}
+			alt={portadaAlt}
+			widths={[400, 800, 1200]}
+			sizes={destacado ? '(min-width: 768px) 712px, 100vw' : '(min-width: 768px) 340px, 100vw'}
+			style={{ objectPosition: portadaEncuadre }}
+			class="aspect-[2/1] w-full rounded-lg border border-border object-cover transition dark:brightness-90 group-hover:dark:brightness-100"
+		/>
+	</div>
 	<div class="flex flex-col gap-4 p-5">
 		<div>
 			<h3>
@@ -28,9 +33,6 @@ const { titulo, resumen, portada, portadaAlt, tecnologias, demo, repo, destacado
 			<p class="mt-2 text-muted">{resumen}</p>
 		</div>
 		<Etiquetas tecnologias={tecnologias} />
-		<p class="relative z-10 flex gap-4 text-small font-medium">
-			{demo && <a href={demo}>Ver demo</a>}
-			<a href={repo}>Código</a>
-		</p>
+		<EnlacesProyecto demo={demo} repo={repo} />
 	</div>
 </article>

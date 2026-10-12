@@ -11,9 +11,11 @@ const proyectos = defineCollection({
 			tipo: z.enum(['frontend', 'bases-de-datos']),
 			portada: image(),
 			portadaAlt: z.string(),
+			// Qué parte de la captura se ve en la tarjeta (object-position de CSS)
+			portadaEncuadre: z.string().default('center top'),
 			tecnologias: z.array(z.string()).max(4),
 			demo: z.url().optional(),
-			repo: z.url(),
+			repo: z.url().optional(),
 			destacado: z.boolean().default(false),
 			orden: z.number(),
 			// Solo para proyectos de bases de datos
