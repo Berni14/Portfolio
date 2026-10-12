@@ -1,4 +1,6 @@
 ---
+import ThemeToggle from './ThemeToggle.astro';
+
 const enlaces = [
 	{ href: '#proyectos', texto: 'Proyectos' },
 	{ href: '#bases-de-datos', texto: 'Bases de datos' },
@@ -9,13 +11,14 @@ const enlaces = [
 ---
 
 <header class="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 px-4 py-6">
-	<a href="/" class="font-bold">Berni</a>
+	<a href="/" class="font-display text-subtitle font-bold">Berni</a>
 	<nav aria-label="Principal">
-		<ul class="flex flex-wrap gap-4">
+		<ul class="flex flex-wrap gap-4 text-small text-muted">
 			{enlaces.map(({ href, texto }) => (
 				<li><a href={href}>{texto}</a></li>
 			))}
 		</ul>
 	</nav>
-	<!-- Fase 2: botón de tema · Fase 4: selector ES / EN -->
+	<ThemeToggle />
+	<!-- Fase 4: selector ES / EN -->
 </header>

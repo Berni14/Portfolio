@@ -61,13 +61,13 @@ Listo cuando: la home muestra las seis secciones con contenido de prueba.
 
 Aquí traduces las variables de Figma a código para que el cambio de tema funcione solo.
 
-- [ ] Declarar los colores como variables CSS en `:root` y redefinirlas para el tema oscuro
-- [ ] Conectar esas variables con Tailwind para usarlas como clases (`bg-bg`, `text-accent`…)
-- [ ] Instalar Bricolage Grotesque y Geist en local (sin depender de Google en cada visita)
-- [ ] Aplicar la escala tipográfica como estilos base
-- [ ] Hacer el botón de tema con tres estados: sistema, claro y oscuro
-- [ ] Guardar la preferencia del usuario en `localStorage`
-- [ ] Evitar el parpadeo blanco al cargar en oscuro
+- [x] Declarar los colores como variables CSS en `:root` y redefinirlas para el tema oscuro
+- [x] Conectar esas variables con Tailwind para usarlas como clases (`bg-bg`, `text-accent`…)
+- [x] Instalar Bricolage Grotesque y Geist en local (sin depender de Google en cada visita)
+- [x] Aplicar la escala tipográfica como estilos base
+- [x] Hacer el botón de tema con tres estados: sistema, claro y oscuro
+- [x] Guardar la preferencia del usuario en `localStorage`
+- [x] Evitar el parpadeo blanco al cargar en oscuro
 
 Qué aprender en esta fase:
 

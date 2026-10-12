@@ -8,6 +8,6 @@ const { id, titulo } = Astro.props;
 ---
 
 <section id={id} aria-labelledby={`${id}-titulo`} class="scroll-mt-8 py-16">
-	<h2 id={`${id}-titulo`} class="mb-6 text-2xl font-bold">{titulo}</h2>
+	<h2 id={`${id}-titulo`} class="mb-6">{titulo}</h2>
 	<slot />
 </section>
