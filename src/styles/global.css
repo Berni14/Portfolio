@@ -58,6 +58,11 @@
 }
 
 @layer base {
+	/* Deja hueco al header fijo al saltar a una sección (#proyectos…) */
+	html {
+		@apply scroll-pt-28 sm:scroll-pt-20;
+	}
+
 	body {
 		@apply bg-bg font-sans text-body text-fg antialiased;
 	}
