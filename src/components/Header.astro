@@ -1,0 +1,21 @@
+---
+const enlaces = [
+	{ href: '#proyectos', texto: 'Proyectos' },
+	{ href: '#bases-de-datos', texto: 'Bases de datos' },
+	{ href: '#experiencia', texto: 'Experiencia' },
+	{ href: '#sobre-mi', texto: 'Sobre mí' },
+	{ href: '#contacto', texto: 'Contacto' },
+];
+---
+
+<header class="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 px-4 py-6">
+	<a href="/" class="font-bold">Berni</a>
+	<nav aria-label="Principal">
+		<ul class="flex flex-wrap gap-4">
+			{enlaces.map(({ href, texto }) => (
+				<li><a href={href}>{texto}</a></li>
+			))}
+		</ul>
+	</nav>
+	<!-- Fase 2: botón de tema · Fase 4: selector ES / EN -->
+</header>
