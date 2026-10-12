@@ -1,0 +1,60 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Code } from 'astro:components';
+import { Image } from 'astro:assets';
+
+interface Props {
+	proyecto: CollectionEntry<'proyectos'>;
+}
+
+const { proyecto } = Astro.props;
+const { titulo, resumen, portada, portadaAlt, repo, motor, tablas, relaciones, consulta } = proyecto.data;
+const cifras = [
+	motor && { valor: motor, nombre: 'motor' },
+	tablas && { valor: tablas, nombre: 'tablas' },
+	relaciones && { valor: relaciones, nombre: 'relaciones' },
+].filter(Boolean) as { valor: string | number; nombre: string }[];
+---
+
+<!-- Aspecto de terminal para distinguirla de un vistazo de las de frontend -->
+<article class="relative overflow-hidden rounded-2xl border border-border bg-surface font-mono transition-colors hover:border-accent/60">
+	<div class="flex items-center gap-2 border-b border-border px-4 py-2 text-small text-muted" aria-hidden="true">
+		<span class="size-2.5 rounded-full bg-border"></span>
+		<span class="size-2.5 rounded-full bg-border"></span>
+		<span class="size-2.5 rounded-full bg-border"></span>
+		<span class="ml-2">{proyecto.id}.sql</span>
+	</div>
+	<Image
+		src={portada}
+		alt={portadaAlt}
+		widths={[400, 800, 1200]}
+		sizes="(min-width: 768px) 736px, 100vw"
+		class="aspect-video w-full border-b border-border object-cover"
+	/>
+	<div class="flex flex-col gap-4 p-5">
+		<div class="font-sans">
+			<h3>
+				<a href={`/proyectos/${proyecto.id}/`} class="after:absolute after:inset-0 hover:no-underline">{titulo}</a>
+			</h3>
+			<p class="mt-2 text-muted">{resumen}</p>
+		</div>
+		{consulta && (
+			<div>
+				<p class="mb-2 text-small text-muted">-- {consulta.pregunta}</p>
+				<Code code={consulta.sql.trim()} lang="sql" themes={{ light: 'github-light', dark: 'github-dark' }} defaultColor={false} class="rounded-lg p-4 text-small" />
+			</div>
+		)}
+		<dl class="flex flex-wrap gap-x-6 gap-y-2 text-small">
+			{cifras.map(({ valor, nombre }) => (
+				<div class="flex gap-1.5">
+					<dt class="sr-only">{nombre}</dt>
+					<dd class="font-bold text-accent">{valor}</dd>
+					<dd class="text-muted" aria-hidden="true">{nombre === 'motor' ? '' : nombre}</dd>
+				</div>
+			))}
+		</dl>
+		<p class="relative z-10 text-small font-medium">
+			<a href={repo}>Script y datos de ejemplo</a>
+		</p>
+	</div>
+</article>

@@ -5,6 +5,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  markdown: {
+    shikiConfig: {
+      // Dos temas de resaltado; global.css elige uno según data-theme
+      themes: { light: 'github-light', dark: 'github-dark' },
+      defaultColor: false,
+    },
+  },
   vite: {
     plugins: [tailwindcss()]
   }

@@ -1,10 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import Seccion from './Seccion.astro';
+import TarjetaBD from './TarjetaBD.astro';
+
+const proyectos = (await getCollection('proyectos', ({ data }) => data.tipo === 'bases-de-datos'))
+	.sort((a, b) => a.data.orden - b.data.orden);
 ---
 
 <Seccion id="bases-de-datos" titulo="Bases de datos">
-	<ul class="space-y-4">
-		<li>Proyecto de bases de datos 1 (prueba)</li>
-		<li>Proyecto de bases de datos 2 (prueba)</li>
-	</ul>
+	<div class="grid gap-6">
+		{proyectos.map((proyecto) => <TarjetaBD proyecto={proyecto} />)}
+	</div>
 </Seccion>

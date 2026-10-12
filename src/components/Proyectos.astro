@@ -1,11 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import Seccion from './Seccion.astro';
+import TarjetaFrontend from './TarjetaFrontend.astro';
+
+const proyectos = (await getCollection('proyectos', ({ data }) => data.tipo === 'frontend'))
+	.sort((a, b) => a.data.orden - b.data.orden);
 ---
 
 <Seccion id="proyectos" titulo="Proyectos">
-	<ul class="space-y-4">
-		<li>Proyecto de frontend destacado (prueba)</li>
-		<li>Proyecto de frontend 2 (prueba)</li>
-		<li>Proyecto de frontend 3 (prueba)</li>
-	</ul>
+	<div class="grid gap-6 sm:grid-cols-2">
+		{proyectos.map((proyecto) => <TarjetaFrontend proyecto={proyecto} />)}
+	</div>
 </Seccion>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#151713"/>
+  <rect x="80" y="80" width="1440" height="740" rx="24" fill="#0c0d0b" stroke="#2a2d27" stroke-width="4"/>
+  <circle cx="130" cy="125" r="10" fill="#2a2d27"/><circle cx="165" cy="125" r="10" fill="#2a2d27"/><circle cx="200" cy="125" r="10" fill="#2a2d27"/>
+  <rect x="160" y="260" width="520" height="28" rx="14" fill="#a3e635"/>
+  <rect x="160" y="320" width="760" height="20" rx="10" fill="#2a2d27"/>
+  <rect x="160" y="360" width="640" height="20" rx="10" fill="#2a2d27"/>
+  <text x="160" y="560" font-family="sans-serif" font-size="72" font-weight="700" fill="#ecefe8">Tienda de discos</text>
+  <text x="160" y="630" font-family="sans-serif" font-size="36" fill="#a1a69b">Captura de ejemplo</text>
+</svg>

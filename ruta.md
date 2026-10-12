@@ -83,12 +83,12 @@ Listo cuando: recargas en oscuro y no hay ni un destello claro.
 
 Cada proyecto vive en su propio archivo Markdown dentro de una Content Collection; así añadir uno nuevo es crear un archivo, no tocar componentes.
 
-- [ ] Crear una colección `proyectos` con un esquema que valide los campos (ver tabla)
-- [ ] Escribir un archivo `.md` por proyecto: 3 de frontend y 2 de bases de datos
-- [ ] Crear el componente de tarjeta y listar los proyectos ordenados por `orden`
-- [ ] Separar en la home los de `tipo: frontend` y los de `tipo: bases-de-datos`
-- [ ] Crear una página dinámica de detalle por proyecto
-- [ ] Optimizar las capturas con el componente `<Image />` de Astro
+- [x] Crear una colección `proyectos` con un esquema que valide los campos (ver tabla)
+- [x] Escribir un archivo `.md` por proyecto: 3 de frontend y 2 de bases de datos (de ejemplo: falta sustituirlos por los reales)
+- [x] Crear el componente de tarjeta y listar los proyectos ordenados por `orden`
+- [x] Separar en la home los de `tipo: frontend` y los de `tipo: bases-de-datos`
+- [x] Crear una página dinámica de detalle por proyecto
+- [x] Optimizar las capturas con el componente `<Image />` de Astro
 - [ ] Rellenar Experiencia y Sobre mí con contenido real
 
 Campos que propongo para cada proyecto:

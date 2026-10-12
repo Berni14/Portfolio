@@ -97,3 +97,56 @@
 		@apply bg-accent text-accent-fg;
 	}
 }
+
+/* Resaltado de código: Shiki genera los dos temas y aquí se elige según data-theme */
+[data-theme="dark"] .astro-code,
+[data-theme="dark"] .astro-code span {
+	color: var(--shiki-dark);
+	background-color: var(--shiki-dark-bg);
+}
+
+[data-theme="light"] .astro-code,
+[data-theme="light"] .astro-code span {
+	color: var(--shiki-light);
+	background-color: var(--shiki-light-bg);
+}
+
+.astro-code {
+	@apply overflow-x-auto border border-border;
+}
+
+/* Texto largo de las páginas de detalle (lo que viene del Markdown) */
+.prosa {
+	@apply max-w-prose;
+
+	& h2 {
+		@apply mt-12 mb-3 text-subtitle;
+	}
+
+	& p,
+	& ul,
+	& ol,
+	& pre {
+		@apply mt-4;
+	}
+
+	& ul {
+		@apply list-disc pl-6;
+	}
+
+	& ol {
+		@apply list-decimal pl-6;
+	}
+
+	& a {
+		@apply text-accent underline;
+	}
+
+	& :not(pre) > code {
+		@apply rounded bg-surface px-1.5 py-0.5 text-small;
+	}
+
+	& pre {
+		@apply rounded-lg p-4 text-small;
+	}
+}

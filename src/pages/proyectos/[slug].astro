@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import Etiquetas from '../../components/Etiquetas.astro';
+
+// Se ejecuta en el build: genera una página por cada archivo de la colección
+export async function getStaticPaths() {
+	const proyectos = await getCollection('proyectos');
+	return proyectos.map((proyecto) => ({
+		params: { slug: proyecto.id },
+		props: { proyecto },
+	}));
+}
+
+const { proyecto } = Astro.props;
+const { titulo, resumen, tipo, portada, portadaAlt, tecnologias, demo, repo } = proyecto.data;
+const { Content } = await render(proyecto);
+const volver = tipo === 'frontend' ? '/#proyectos' : '/#bases-de-datos';
+---
+
+<Layout title={`${titulo} · Berni`} description={resumen}>
+	<article class="py-12">
+		<p class="text-small"><a href={volver} class="text-muted">← Volver</a></p>
+		<h1 class="mt-6">{titulo}</h1>
+		<p class="mt-4 max-w-prose text-subtitle text-muted">{resumen}</p>
+		<div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+			<Etiquetas tecnologias={tecnologias} />
+			<p class="flex gap-4 text-small font-medium">
+				{demo && <a href={demo}>Ver demo</a>}
+				<a href={repo}>Código</a>
+			</p>
+		</div>
+		<Image
+			src={portada}
+			alt={portadaAlt}
+			widths={[400, 800, 1200, 1600]}
+			sizes="(min-width: 768px) 736px, 100vw"
+			loading="eager"
+			class="mt-10 aspect-video w-full rounded-2xl border border-border object-cover"
+		/>
+		<div class="prosa mt-12">
+			<Content />
+		</div>
+	</article>
+</Layout>
