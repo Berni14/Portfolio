@@ -24,6 +24,16 @@ const formacion = [
 		fechas: 'En curso',
 	},
 ];
+
+// Cursos de Cisco Networking Academy, del más reciente al más antiguo
+const cursos = [
+	{ titulo: 'Data Science Essentials with Python', fechas: '2026' },
+	{ titulo: 'Networking Basics', fechas: '2026' },
+	{ titulo: 'JavaScript Essentials 2', fechas: '2026' },
+	{ titulo: 'Introduction to Cybersecurity', fechas: 'Curso 25/26 · CES GMQ' },
+	{ titulo: 'Linux Unhatched', fechas: 'Curso 25/26 · CES GMQ' },
+	{ titulo: 'JavaScript Essentials 1', fechas: '2025' },
+];
 ---
 
 <Seccion id="experiencia" titulo="Experiencia">
@@ -44,6 +54,17 @@ const formacion = [
 			<li>
 				<p class="font-medium">{titulo}</p>
 				<p class="text-small text-muted">{lugar} · {fechas}</p>
+			</li>
+		))}
+	</ul>
+
+	<h3 class="mt-12 mb-1">Cursos</h3>
+	<p class="mb-4 text-small text-muted">Cisco Networking Academy</p>
+	<ul class="grid gap-4 sm:grid-cols-2">
+		{cursos.map(({ titulo, fechas }) => (
+			<li>
+				<p class="font-medium">{titulo}</p>
+				<p class="text-small text-muted">{fechas}</p>
 			</li>
 		))}
 	</ul>
