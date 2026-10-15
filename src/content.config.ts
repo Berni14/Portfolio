@@ -16,6 +16,8 @@ const proyectos = defineCollection({
 			tecnologias: z.array(z.string()).max(4),
 			demo: z.url().optional(),
 			repo: z.url().optional(),
+			// Enlaces secundarios, p. ej. el repo de la API cuando el proyecto tiene dos
+			enlaces: z.array(z.object({ texto: z.string(), url: z.url() })).default([]),
 			destacado: z.boolean().default(false),
 			orden: z.number(),
 			// Solo para proyectos de bases de datos

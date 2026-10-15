@@ -7,7 +7,7 @@ portadaAlt: "Pantalla de juego con la Poké Ball para hacer clic, el aviso de la
 tecnologias: [React, PokeAPI, CSS, localStorage]
 demo: https://pokeclickers.netlify.app/
 repo: https://github.com/Berni14
-orden: 2
+orden: 3
 ---
 
 ## Contexto

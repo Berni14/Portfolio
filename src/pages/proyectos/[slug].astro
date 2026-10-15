@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 }
 
 const { proyecto } = Astro.props;
-const { titulo, resumen, tipo, portada, portadaAlt, tecnologias, demo, repo } = proyecto.data;
+const { titulo, resumen, tipo, portada, portadaAlt, tecnologias, demo, repo, enlaces } = proyecto.data;
 const { Content } = await render(proyecto);
 const volver = tipo === 'frontend' ? '/#proyectos' : '/#bases-de-datos';
 ---
@@ -27,7 +27,7 @@ const volver = tipo === 'frontend' ? '/#proyectos' : '/#bases-de-datos';
 		<p class="mt-4 max-w-prose text-subtitle text-muted">{resumen}</p>
 		<div class="mt-6 flex flex-wrap items-center justify-between gap-4">
 			<Etiquetas tecnologias={tecnologias} />
-			<EnlacesProyecto demo={demo} repo={repo} />
+			<EnlacesProyecto demo={demo} repo={repo} enlaces={enlaces} />
 		</div>
 		<Image
 			src={portada}
